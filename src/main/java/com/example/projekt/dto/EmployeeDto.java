@@ -1,31 +1,36 @@
-package com.example.projekt.entities;
+package com.example.projekt.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+;
 
-@Entity
-@Table(name = "employees")
-public class Employee {
+
+public class EmployeeDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
 
     private String firstName;
-
+    @NotBlank
     private String lastName;
-
+    @NotBlank
     private String street;
-
+    @NotBlank
     private String phoneNumber;
-
+    @NotBlank
     private String email;
-
+    @NotBlank
     public String position;
-
+    @NotNull
     public Double payment;
 
-    public Employee(Long id, String firstName, String lastName, String street, String phoneNumber, String email, String position, Double payment) {
+    public EmployeeDto() {
+
+    }
+
+    public EmployeeDto(Long id, String firstName, String lastName, String street, String phoneNumber, String email, String position, Double payment) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,10 +39,6 @@ public class Employee {
         this.email = email;
         this.position = position;
         this.payment = payment;
-    }
-
-    public Employee() {
-
     }
 
     public Long getId() {

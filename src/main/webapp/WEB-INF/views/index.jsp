@@ -18,6 +18,7 @@
 <body>
 <div>
     <h2>Eurostal - Management system</h2>
+    <a href="add-employee.jsp">Register employee</a>
     <tr>
         <div align="left">
             <h3><a th:href="@{'/add-employee'}">Add new</a></h3>
@@ -41,7 +42,7 @@
                     </thead>
                     <tbody>
                     <tr th:each="employee : ${listemployee}">
-                        <td th:text="${employee.id}">Employee ID</td>
+                        <td [*[{employee.firstname}]]>Employee ID</td>
                         <td th:text="${employee.firstName}">StudentName</td>
                         <td th:text="${employee.street}">Street</td>
                         <td th:text="${employee.phoneNumber}">PhoneNumber</td>
