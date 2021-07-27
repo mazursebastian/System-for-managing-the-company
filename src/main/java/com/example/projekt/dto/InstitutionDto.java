@@ -1,28 +1,29 @@
-package com.example.projekt.entities;
+package com.example.projekt.dto;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "institutions")
-public class Institution {
+public class InstitutionDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
+    @NotBlank
+    @Column(name = "name_institution", nullable = false, length = 100)
     private String name;
-
-
+    @NotBlank
+    @Column(name = "institution_description", nullable = false, length = 1000)
     private String description;
 
-    public Institution(Long id, String name, String description) {
+    public InstitutionDto(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public Institution() {
+    public InstitutionDto() {
 
     }
 

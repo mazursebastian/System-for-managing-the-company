@@ -18,13 +18,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 </head>
-<body bgcolor="#afeeee">
-<div  align="center"><h2>Add employee to database:</h2></div>
-<div class="sum-employee"  align="center">
+<body>
+<div><h2>Add employee to database:</h2></div>
+<div class="sum-employee">
     <h5>W bazie danych znajduje się: <c:out value="${count}"/> pracowników </h5>
 </div>
 <div  align="center">
-    <form:form method="post" modelAttribute="employeeform">
+
+    <form:form method="post" modelAttribute="employeeDto">
         <br>
         <p>
             Imię:

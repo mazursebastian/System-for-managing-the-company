@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <link href="/style/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <meta charset="UTF-8"/>
@@ -17,43 +18,57 @@
 </head>
 <body>
 <div>
-    <h2>Eurostal - Management system</h2>
-    <a href="add-employee.jsp">Register employee</a>
-    <tr>
-        <div align="left">
-            <h3><a th:href="@{'/add-employee'}">Add new</a></h3>
-        </div>
 
-    </tr>
+    <table cellpadding="0px" cellspacing="0px" id="navBar">
+        <tr>
+            <td>
+                <h3><a href="/add-employee">Add new employee</a></h3>
+            </td>
+            <td>
+                <h3><a href="/add-employee">Display employees list</a></h3>
+            </td>
+            <td>
+                <h3><a href="/add-employee">Add new company order</a></h3>
+            </td>
+            <td>
+                <h3><a href="/add-employee">Display companies orders</a></h3>
+            </td>
+        </tr>
+    </table>
+
+
     <tr>
 
-        <div class="col-sm-5" align="center">
-            <div class="panel-body" align="center">
+        <div class="col-sm-5">
+            <div class="panel-body">
                 <table class="table">
                     <thead class="thead-dark">
+                    <h2>Eurostal - Management system</h2>
                     <tr>
-                        <th>Employee ID</th>
-                        <th>Employee Name</th>
-                        <th>street</th>
-                        <th>phoneNumber</th>
+                        <th> First Name</th>
+                        <th> Last Name</th>
+                        <th>Street</th>
+                        <th>PhoneNumber</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="employee : ${listemployee}">
-                        <td [*[{employee.firstname}]]>Employee ID</td>
-                        <td th:text="${employee.firstName}">StudentName</td>
-                        <td th:text="${employee.street}">Street</td>
-                        <td th:text="${employee.phoneNumber}">PhoneNumber</td>
-                        <td>
-                            <a th:href="@{'/edit/' + ${employee.id}}">Edit</a>
-                        </td>
-                        <td>
-                            <a th:href="@{'/delete/' + ${employee.id}}">Delete</a>
-                        </td>
-                    </tr>
+                    <c:forEach items="${listemployee}" var="employee">
+                        <tr>
+                            <td><c:out value="${employee.firstName}"/></td>
+                            <td><c:out value="${employee.lastName}"/></td>
+                            <td><c:out value="${employee.street}"/></td>
+                            <td><c:out value="${employee.phoneNumber}"/></td>
 
+                            <td><a href="/edit/${employee.id}"><input type="button" value="Edit"
+                                                                      class="edit-button"></a></td>
+                            <td>
+                                <a href="/delete/${employee.id}"><input type="button" value="Delete"
+                                                                        class="delete-button"></a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
 

@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import javax.persistence.Basic;
+import javax.persistence.EntityExistsException;
 import javax.validation.Valid;
-import javax.xml.validation.Validator;
 import java.util.List;
 import java.util.Map;
 
 @Controller
+
 public class EmployeeController {
 
     private final EmployeeService employeeService;
@@ -55,18 +57,37 @@ public class EmployeeController {
         return "redirect:/";
     }
 
-    @RequestMapping("/edit/{id}")
-    public ModelAndView EditEmployee(@PathVariable(name = "id") int id) {
-        ModelAndView modelAndView = new ModelAndView("add-employee");
-        Employee employee = employeeService.get(id);
-        modelAndView.addObject("employee", employee);
-        return modelAndView;
+    @GetMapping("/edit/{id}")
+    public String EditEmployee(@PathVariable Long id, Model model) {
+        model.addAttribute("employeeDto", employeeService.get(id));
+        return "/edit-employee";
+    }
+
+    @PostMapping("/edit")
+    public String postEditEmployee(@ModelAttribute("employeeDto") EmployeeDto employeeDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "edit-employee";
+        }
+        employeeService.update(employeeDto);
+        return "redirect:/";
+
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteStudent(@PathVariable(name = "id") int id) {
+    public String deleteStudent(@PathVariable Long id) {
         employeeService.delete(id);
         return "redirect:/";
     }
+
+    @RequestMapping("/add-employee")
+    public String addView() {
+        return "add-employee";
+    }
+
+    @ModelAttribute("count")
+    public Long count() {
+        return employeeService.employeeCount();
+    }
+
 
 }
