@@ -6,9 +6,12 @@
 .empty-area{
 
 }
+.title-name{
+    margin-top: 50px;
+}
 
 body {
-    background-color: aquamarine;
+   color: aquamarine;
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
     background: rgba(71, 147, 227, 1);

@@ -8,18 +8,8 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>Document</title>
-</head>
-<body bgcolor="#afeeee">
-<div  align="center"><h2>Add employee to database:</h2></div>
+<%@include file="header.jsp" %>
+<div  align="center"> <h2 class="title-name">Eurostal - Management system</h2></div>
 <div class="sum-employee"  align="center">
     <h5>W bazie danych znajduje się: <c:out value="${count}"/> pracowników </h5>
 </div>

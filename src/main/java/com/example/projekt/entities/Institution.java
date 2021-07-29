@@ -2,6 +2,7 @@ package com.example.projekt.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "institutions")
@@ -13,17 +14,26 @@ public class Institution {
 
     private String name;
 
-
+    private LocalDate dateOrder;
     private String description;
 
-    public Institution(Long id, String name, String description) {
+    public Institution(Long id, String name, LocalDate dateOrder, String description) {
         this.id = id;
         this.name = name;
+        this.dateOrder = dateOrder;
         this.description = description;
     }
 
     public Institution() {
 
+    }
+
+    public LocalDate getDateOrder() {
+        return dateOrder;
+    }
+
+    public void setDateOrder(LocalDate dateOrder) {
+        this.dateOrder = dateOrder;
     }
 
     public Long getId() {
