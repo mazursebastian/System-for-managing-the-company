@@ -25,7 +25,7 @@
 </div>
 <div  align="center">
 
-    <form:form method="post" modelAttribute="employeeDto">
+    <form:form  method="post" modelAttribute="employeeDto">
         <br>
         <p>
             Imię:

@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import javax.persistence.Basic;
-import javax.persistence.EntityExistsException;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 
@@ -58,20 +56,24 @@ public class EmployeeController {
     }
 
     @GetMapping("/edit/{id}")
-    public String EditEmployee(@PathVariable Long id, Model model) {
-        model.addAttribute("employeeDto", employeeService.get(id));
+    public String EditEmployee(@PathVariable(value = "id") Long id, Model model) {
+
+        model.addAttribute("employeeDto",employeeService.get(id));
         return "/edit-employee";
     }
 
+
     @PostMapping("/edit")
-    public String postEditEmployee(@ModelAttribute("employeeDto") EmployeeDto employeeDto, BindingResult bindingResult) {
+    public String postEditEmployee(EmployeeDto employeeDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit-employee";
         }
         employeeService.update(employeeDto);
-        return "redirect:/";
+        return "redirect:/index";
 
     }
+
+
 
     @RequestMapping("/delete/{id}")
     public String deleteStudent(@PathVariable Long id) {

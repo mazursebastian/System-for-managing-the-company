@@ -13,6 +13,7 @@
             <table class="table">
                 <thead class="thead-dark">
                 <h2 class="title-name">Eurostal - Management system</h2>
+                <h5>W bazie danych znajduje się: <c:out value="${count}"/> pracowników </h5>
                 <tr>
                     <th> First Name</th>
                     <th> Last Name</th>
