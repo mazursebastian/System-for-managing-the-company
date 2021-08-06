@@ -9,9 +9,10 @@
 
 
 
-</tbody>
-</table>
-</div>
+
+<section class="background-client" >
+
+</section>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 </head>
-<body style="background-color:paleturquoise">
+<body class="client-body">
 <header>
 
     <div>
