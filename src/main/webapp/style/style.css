@@ -3,28 +3,71 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
-.client-body{
-    background-image: url(../images/Odlewy_i_staliwa.png);
+.log-title{
+    align-items: center;
+}
+.card{
+    background-color: black;
+    border-style: dashed;
+}
+.btn btn-lg btn-primary btn-block{
+    background-color: darkorange;
+}
+.p-description{
+    color: white;
+}
+.container{
+    background-color: #080808 ;
+}
+
+.register-section {
+
+
+    background-size: 50% 50%;
+}
+.youtube-vid{
+    padding: 70px 70px;
+
+    text-align: center;
+}
+.title-cd{
+    color: white;
+}
+.price{
+    color: white;
+}
+
+.client-body {
+    background-image: url("../resources/images/drugie tlo.jpg");
+
+   background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
 }
-.empty-area{
+.image-background{
+    max-width: 100%;
+   max-height: 100%;
 
+
+    background-size: 100% 100%;
 }
-.background-client{
 
-    background-image: url(../images/Odlewy_i_staliwa.png);
+
+.background-client {
+
+
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
-.title-name{
+
+.title-name {
     margin-top: 50px;
 }
 
 body {
-   color: aquamarine;
+    color: aquamarine;
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
     background: rgba(71, 147, 227, 1);
@@ -53,8 +96,8 @@ body {
 
     background-color: white;
     font-family: sans-serif;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 
 
 }
@@ -77,11 +120,6 @@ h2 {
     width: 100%;
     text-align: center;
     background: #E7E7E7;
-    -moz-box-shadow: 10px 10px 10px #ccc;
-    -webkit-box-shadow: 10px 10px 10px #ccc;
-    -ms-box-shadow: 10px 10px 10px #ccc;
-    -o-box-shadow: 10px 10px 10px #ccc;
-    box-shadow: 10px 10px 10px #ccc;
 }
 
 #navBar a {
@@ -108,14 +146,14 @@ th {
 
 #navBar a:hover {
 
-    color: aquamarine;
+    color:darkorange;
     background: #B9B9B9;
     text-decoration: none;
 }
 
 #navBar a.selected {
     color: #000;
-    background: #B9B9B9;
+    background: grey;
     text-decoration: none;
 }
 

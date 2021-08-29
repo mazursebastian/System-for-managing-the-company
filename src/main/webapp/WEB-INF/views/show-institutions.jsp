@@ -7,14 +7,14 @@
 <%@include file="header.jsp" %>
 
 
-    <tr>
+    <tr >
 
-        <div class="col-sm-5">
+        <div class="col-sm-5" >
             <div class="panel-body">
                 <table class="table">
                     <thead class="thead-dark">
-                    <h2 class="title-name">Eurostal - Management system</h2>
-                    <h5>W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówień </h5>
+                    <h2 class="title-name">System do zarządzania - lista pracowników</h2>
+                    <h5 style="color:white;">W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówień </h5>
                     <tr>
                         <th> Institution name</th>
                         <th> Ordered on</th>

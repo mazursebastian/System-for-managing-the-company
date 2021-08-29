@@ -25,4 +25,30 @@ public class ClientController {
     public String contactClient() {
         return "/contact-client";
     }
+
+    @RequestMapping("/login")
+    public String LoginClient() {
+        return "/login";
+    }
+
+    @RequestMapping("/register")
+    public String RegisterClient() {
+        return "/register";
+    }
+
+    @RequestMapping("/products-client")
+    public String ProductClient() {
+        return "/products-client";
+    }
+
+    @RequestMapping("/profile-client")
+    public String ProfileClient() {
+        return "/profile-client";
+    }
+    @RequestMapping("/add-order")
+    public String addOrder() {
+        return "/add-order";
+    }
+
+
 }

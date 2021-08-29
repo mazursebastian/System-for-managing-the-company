@@ -11,7 +11,7 @@
 <%@include file="header.jsp" %>
 <div align="center"> <h2 class="title-name">Eurostal - Management system</h2></div>
 <div class="sum-employee" align="center">
-    <h5>W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówień </h5>
+    <h5 style="color:white;">W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówień </h5>
 </div>
 <div align="center">
     <form:form method="post" modelAttribute="institutionform">

@@ -5,12 +5,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <%@include file="header-client.jsp" %>
-
+<%@include file="navbar.jsp" %>
 
 
 </tbody>
 </table>
 </div>
+
 
 </body>
 </html>

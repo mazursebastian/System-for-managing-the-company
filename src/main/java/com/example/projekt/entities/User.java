@@ -1,32 +1,22 @@
 package com.example.projekt.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String email;
-    private String login;
+    private String username;
+    private String password;
+    private String passwordConfirm;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
-    private String firstName;
-
-    private String lastName;
-
-    public User(Long id, String email, String login, String firstName, String lastName) {
-        this.id = id;
-        this.email = email;
-        this.login = login;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public User() {
-
-    }
 
     public Long getId() {
         return id;
@@ -36,35 +26,45 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getLogin() {
-        return login;
+    public String getPassword() {
+        return password;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    @Transient
+    public String getPasswordConfirm() {
+        return passwordConfirm;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
     }
 
-    public String getLastName() {
-        return lastName;
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
+    /*
+    public void addRole(Set<Role> roles, Role role) {
+     roles.add(role);
+    }
+
+     */
+
+
 }
