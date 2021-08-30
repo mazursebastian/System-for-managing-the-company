@@ -9,22 +9,25 @@
 
 
 <%@include file="header.jsp" %>
-<div align="center"> <h2 class="title-name">Eurostal - Management system</h2></div>
+<br>
+<div align="center" style="color: white"> <h2 class="title-name">Formularz dla współprac</h2></div>
 <div class="sum-employee" align="center">
-    <h5 style="color:white;">W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówień </h5>
+    <h5 style="color:white;">W bazie danych znajduje się: <c:out value="${institutioncount}"/> zamówienia </h5>
 </div>
 <div align="center">
     <form:form method="post" modelAttribute="institutionform">
         <br>
         <p>
-            Name company:
-            <br>
+           <h3 style="color:white;">Nazwa instytucji:</h3>
+        <br>
             <form:input path="name"/>
             <form:errors path="name" cssClass="error" element="p"/>
             <br>
         </p>
         <p>
-            Ordered on:
+        <h3 style="color:white;"> Termin realizacji</h3>
+        <h5 style="color: white"> format: yyyy-MM-dd</h5>
+
             <br>
             <form:input path="dateOrder"/>
             <form:errors path="dateOrder" cssClass="error" element="p"/>
@@ -32,7 +35,7 @@
         </p>
 
         <p>
-            Description:
+        <h3 style="color:white;"> Opis współpracy:</h3>
             <br>
             <form:input path="description"/>
             <form:errors path="description" cssClass="error" element="p"/>

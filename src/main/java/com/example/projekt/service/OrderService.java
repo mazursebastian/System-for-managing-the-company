@@ -15,39 +15,52 @@ import java.util.Optional;
 public class OrderService {
     private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
-    public void update( OrderDto orderDto) {
+
+    public void update(OrderDto orderDto) {
         Order newOrder = new Order();
         newOrder.setCity(orderDto.getCity());
         newOrder.setStreet(orderDto.getStreet());
         newOrder.setProduct(orderDto.getProduct());
-        newOrder.setPickUpDate(orderDto.getPickUpDate());
+        newOrder.setZipCode(orderDto.getZipCode());
         newOrder.setPhoneNumber(orderDto.getPhoneNumber());
         newOrder.setProduct(orderDto.getProduct());
         orderRepository.save(newOrder);
     }
+
     public OrderService(OrderRepository orderRepository, ProductRepository productRepository) {
         this.orderRepository = orderRepository;
         this.productRepository = productRepository;
     }
-    public void add(OrderDto orderDto){
-        Order newOrder= new Order();
+
+    public void add(OrderDto orderDto) {
+        Order newOrder = new Order();
         newOrder.setFirstName(orderDto.getFirstName());
         newOrder.setLastName(orderDto.getLastName());
         newOrder.setCity(orderDto.getCity());
         newOrder.setStreet(orderDto.getStreet());
         newOrder.setPhoneNumber(orderDto.getPhoneNumber());
         newOrder.setProduct(orderDto.getProduct());
-        newOrder.setPickUpDate(orderDto.getPickUpDate());
+        newOrder.setZipCode(orderDto.getZipCode());
+        orderRepository.save(newOrder);
     }
-    public void delete(long id){
+
+    public void delete(long id) {
         orderRepository.deleteById(id);
     }
-    public Optional<OrderDto> get(Long id){
-        return  orderRepository.findById(id).stream().map(order -> new OrderDto(order.getId(),order.getFirstName(),order.getLastName(),order.getCity(),order.getStreet(),order.getPhoneNumber(),order.getProduct(),order.getPickUpDate())).findFirst();
+
+    public Optional<OrderDto> get(Long id) {
+        return orderRepository.findById(id).stream().map(order -> new OrderDto(order.getId(), order.getFirstName(), order.getLastName(), order.getCity(), order.getStreet(), order.getPhoneNumber(), order.getProduct(), order.getZipCode())).findFirst();
     }
+
     public Long orderCount() {
         return orderRepository.count();
     }
-    public List<Order> showAll(){return orderRepository.findAll();}
-    public List<Product> showAllProducts(){return productRepository.findAll(PageRequest.of(0,4)).getContent();}
+
+    public List<Order> showAll() {
+        return orderRepository.findAll();
+    }
+
+    public List<Product> showAllProducts() {
+        return productRepository.findAll(PageRequest.of(0, 4)).getContent();
+    }
 }

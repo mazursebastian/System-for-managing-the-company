@@ -18,6 +18,8 @@ public class EmployeeDto {
     @NotBlank
     private String street;
     @NotBlank
+    private String city;
+    @NotBlank
     private String phoneNumber;
     @NotBlank
     private String email;
@@ -30,11 +32,12 @@ public class EmployeeDto {
 
     }
 
-    public EmployeeDto(Long id, String firstName, String lastName, String street, String phoneNumber, String email, String position, Double payment) {
+    public EmployeeDto(Long id, String firstName, String lastName, String street, String city, String phoneNumber, String email, String position, Double payment) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.street = street;
+        this.city = city;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.position = position;
@@ -103,5 +106,13 @@ public class EmployeeDto {
 
     public void setPayment(Double payment) {
         this.payment = payment;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

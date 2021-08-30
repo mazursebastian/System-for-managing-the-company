@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"  %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -9,7 +9,8 @@
 
 
 <%@include file="header-client.jsp" %>
-<div align="center"><h2 class="title-name">Formularz zamówienia</h2></div>
+<br>
+<div align="center"><h2 class="title-name" style="color: white">Formularz zamówienia:</h2></div>
 <div class="sum-employee" align="center">
 
 </div>
@@ -56,17 +57,17 @@
                     <span class="description">
                   <div class="title" style="color: white">${product.name}</div>
                   <div class="subtitle"  style="color: white">${product.description}</div>
-                  <div class="subtitle"  style="color: white">${product.price}</div>
+                  <div class="subtitle"  style="color: white">${product.price} zł</div>
                 </span>
                 </label>
             </div>
         </c:forEach>
         </p>
         <p>
-        <h3 style=" color:white;"> <i class='bx bxs-calendar' ></i>Data odbioru:</h3>
+        <h3 style=" color:white;"> <i class='bx bxs-calendar' ></i>Kod pocztowy:</h3>
             <br>
-            <form:input path="pickUpDate"/>
-            <form:errors path="pickUpDate" cssClass="error" element="p"/>
+            <form:input path="zipCode"/>
+            <form:errors path="zipCode" cssClass="error" element="p"/>
             <br>
         </p><p>
         <h3 style=" color:white;"><i class='bx bxs-phone-call' ></i>Numer telefonu:</h3>

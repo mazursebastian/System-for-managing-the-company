@@ -12,7 +12,7 @@
         <div class="panel-body">
             <table class="table">
                 <thead class="thead-dark">
-                <h2 class="title-name">Eurostal - Management system</h2>
+                <h2 class="title-name" style="color:white;">Lista pracowników</h2>
                 <h5 style="color:white;">W bazie danych znajduje się: <c:out value="${count}"/> pracowników </h5>
                 <tr>
                     <th> First Name</th>

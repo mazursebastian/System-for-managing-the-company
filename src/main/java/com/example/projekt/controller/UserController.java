@@ -37,16 +37,16 @@ public class UserController {
 
         userService.save(userForm);
 
-        return "redirect:/welcome";
+        return "redirect:/home-page-client";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(Model model, String error, String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Twoja nazwa użytkownika lub hasło są nieprawidłowe");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("message", "Wylogowano z systemu!");
 
         return "login";
     }

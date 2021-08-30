@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
@@ -31,7 +32,22 @@
 <div class="container">
 
     <form:form method="POST" modelAttribute="userForm" class="form-signin">
-        <h2 class="form-signin-heading" style="color: white; margin-left: auto">Create your account</h2>
+        <h2 class="form-signin-heading" style="color: white; text-align: center">Utwórz konto</h2>
+        <spring:bind path="firstName">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="firstName" class="form-control" placeholder="firstName"
+                            autofocus="true"></form:input>
+                <form:errors path="firstName"></form:errors>
+            </div>
+        </spring:bind>
+        <spring:bind path="lastName">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="lastName" class="form-control" placeholder="lastName"
+                            autofocus="true"></form:input>
+                <form:errors path="lastName"></form:errors>
+            </div>
+        </spring:bind>
+
         <spring:bind path="username">
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="text" path="username" class="form-control" placeholder="Username"
@@ -55,10 +71,10 @@
             </div>
         </spring:bind>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: darkorange">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="background-color: darkorange">Zatwierdź</button>
 
     </form:form>
-    <h4 class="text-center"><a href="${contextPath}/login">Login page</a></h4>
+    <h4 class="text-center"><a href="${contextPath}/login">Strona do logowania</a></h4>
 </div>
 <!-- /container -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

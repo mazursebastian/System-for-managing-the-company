@@ -2,6 +2,7 @@ package com.example.projekt.controller;
 
 import com.example.projekt.dto.EmployeeDto;
 import com.example.projekt.dto.OrderDto;
+import com.example.projekt.entities.Institution;
 import com.example.projekt.entities.Order;
 import com.example.projekt.entities.Product;
 import com.example.projekt.service.OrderService;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +25,14 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    @ModelAttribute("orderlist")
+    @GetMapping("/show-orders")
+    public String viewInstitution(Model model) {
+        List<Order> orderList = orderService.showAll();
+        model.addAttribute("orderList", orderList);
+        System.out.println("Get / ");
+        return "/show-orders";
+    }
+    @ModelAttribute("orderList")
     public List<Order> orders() {
         return orderService.showAll();
     }
@@ -47,7 +56,7 @@ public class OrderController {
     }
 
     @PostMapping("/add-order")
-    public String saveOrder(@ModelAttribute("orderform") OrderDto orderDto, BindingResult bindingResult) {
+    public String saveOrder(@Valid @ModelAttribute("orderform") OrderDto orderDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "add-order";
         }
@@ -58,10 +67,10 @@ public class OrderController {
     @RequestMapping("/deleteOrder/{id}")
     public String deleteOrder(@PathVariable Long id) {
         orderService.delete(id);
-        return "redirect:/";
+        return "show-orders";
     }
 
-    @GetMapping("/editorder/{id}")
+    @GetMapping("/editOrder/{id}")
     public String editOrder(@PathVariable(value = "id") Long id, Model model) {
 
         model.addAttribute("orderDto", orderService.get(id));

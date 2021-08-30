@@ -2,6 +2,7 @@ package com.example.projekt.readdto;
 
 import com.example.projekt.entities.Product;
 
+import javax.validation.constraints.Pattern;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -20,10 +21,10 @@ public class OrderReadDto {
 
     private List<Product> products;
 
+    private String zipCode;
 
-    private LocalDate pickUpDate;
 
-    public OrderReadDto(String firstName, String lastName, String city, String street, String phoneNumber, String institution, List<Product> products, LocalDate pickUpDate) {
+    public OrderReadDto(String firstName, String lastName, String city, String street, String phoneNumber, String institution, List<Product> products, String zipCode) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -31,7 +32,7 @@ public class OrderReadDto {
         this.phoneNumber = phoneNumber;
         this.institution = institution;
         this.products = products;
-        this.pickUpDate = pickUpDate;
+        this.zipCode = zipCode;
     }
 
     public String getCity() {
@@ -54,9 +55,7 @@ public class OrderReadDto {
         return products;
     }
 
-    public LocalDate getPickUpDate() {
-        return pickUpDate;
-    }
+
 
     public String getFirstName() {
         return firstName;
@@ -94,7 +93,7 @@ public class OrderReadDto {
         this.products = products;
     }
 
-    public void setPickUpDate(LocalDate pickUpDate) {
-        this.pickUpDate = pickUpDate;
+    public String getZipCode() {
+        return zipCode;
     }
 }

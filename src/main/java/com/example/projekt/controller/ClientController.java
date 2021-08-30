@@ -49,6 +49,10 @@ public class ClientController {
     public String addOrder() {
         return "/add-order";
     }
+    @RequestMapping("show-orders")
+    public String showOrder(){
+        return "/show-orders";
+    }
 
 
 }

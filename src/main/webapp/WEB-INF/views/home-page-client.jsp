@@ -14,10 +14,10 @@
     </div>
     </div>
 <div class="youtube-vid" style="font-family: Candara">
-    <h2>Blejn - Homies</h2>
+    <h2 style="color: white">Blejn - Homies</h2>
 </div>
 <div class="youtube-vid">
-    <h2>Zobacz najnowszy utwór</h2>
+    <h2 style="color: white">Zobacz najnowszy utwór</h2>
 </div>
 
 <section class="background-client" >

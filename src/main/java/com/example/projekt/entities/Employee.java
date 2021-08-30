@@ -14,7 +14,7 @@ public class Employee {
     private String firstName;
 
     private String lastName;
-
+    private String city;
     private String street;
 
     private String phoneNumber;
@@ -25,10 +25,11 @@ public class Employee {
 
     public Double payment;
 
-    public Employee(Long id, String firstName, String lastName, String street, String phoneNumber, String email, String position, Double payment) {
+    public Employee(Long id, String firstName, String lastName, String city, String street, String phoneNumber, String email, String position, Double payment) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.city = city;
         this.street = street;
         this.phoneNumber = phoneNumber;
         this.email = email;
@@ -102,5 +103,13 @@ public class Employee {
 
     public void setPayment(Double payment) {
         this.payment = payment;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

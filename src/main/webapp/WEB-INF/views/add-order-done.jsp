@@ -8,8 +8,13 @@
 
 <div></div>
 <div>
+    <br>
+    <br>
+    <br>
+    <br>
     <h1 style="color: white"> Dziękujemy za wypełnienie formularza, <br>
-        prosimy dokonać przelew na numer konta: **** **** **** ****, a następnie wysłać potwierdzenie płatności <br>
+        <br>
+        Prosimy dokonać przelew na numer konta: ************************, a następnie wysłać potwierdzenie płatności <br>
     na email: blejntypie@gmail.com</h1>
 </div>
 

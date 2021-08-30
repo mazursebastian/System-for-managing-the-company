@@ -32,21 +32,18 @@ public class OrderDto {
     @ManyToOne
     @JoinColumn(name = "ID_Product", nullable = false)
     private Product product;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull
-    @Column(name = "pickUp_date", nullable = false, length = 100)
-    private LocalDate pickUpDate;
+    @Pattern(message = "Proszę podać prawidłowy kod", regexp = "^[0-9]{2}-[0-9]{3}$")
+    private String zipCode;
 
-    public OrderDto(Long id, String firstName, String lastName, String city, String street, String phoneNumber, Product product, LocalDate pickUpDate) {
+    public OrderDto(Long id, String firstName, String lastName, String city, String street, String phoneNumber, Product product, String zipCode) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
         this.street = street;
         this.phoneNumber = phoneNumber;
-
         this.product = product;
-        this.pickUpDate = pickUpDate;
+        this.zipCode = zipCode;
     }
 
     public OrderDto() {
@@ -94,12 +91,12 @@ public class OrderDto {
         this.product = product;
     }
 
-    public LocalDate getPickUpDate() {
-        return pickUpDate;
+    public String getZipCode() {
+        return zipCode;
     }
 
-    public void setPickUpDate(LocalDate pickUpDate) {
-        this.pickUpDate = pickUpDate;
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
     }
 
     public String getFirstName() {
